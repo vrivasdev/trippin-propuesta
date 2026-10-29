@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Presentación Ejecutiva · Nueva Landing Page para Trippin VE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Kaushan+Script&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-deep-blue: #002A7C;
+      --color-navy: #090055;
+      --color-red: #C8102E;
+      --color-cream: #FBF9F4;
+      --color-white: #FFFFFF;
+      --color-slate: #1E293B;
+      --color-muted: #475569;
+      --color-border: #CBD5E1;
+      --color-accent-bg: #EFF6FF;
+      --color-success: #0D9488;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Jost', 'Segoe UI', sans-serif;
+      background-color: var(--color-navy);
+      color: var(--color-slate);
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .deck-viewport {
+      flex: 1;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px 32px 68px;
+    }
+
+    .slide {
+      display: none;
+      width: 100%;
+      max-width: 1380px;
+      height: 100%;
+      max-height: 790px;
+      background: var(--color-cream);
+      border-radius: 20px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+      padding: 34px 48px;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow-y: auto;
+      border-top: 8px solid var(--color-red);
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    .slide.active {
+      display: flex;
+    }
+
+    .slide.cover-slide {
+      background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-deep-blue) 65%, #0a3d9c 100%);
+      color: var(--color-white);
+      border-top: 8px solid var(--color-red);
+      justify-content: center;
+      padding: 60px 72px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .slide-header {
+      border-bottom: 2px solid #E2E8F0;
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .kicker {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--color-red);
+      margin-bottom: 3px;
+    }
+
+    .slide-title {
+      font-size: clamp(1.45rem, 2.1vw, 2.05rem);
+      font-weight: 800;
+      color: var(--color-deep-blue);
+      line-height: 1.15;
+    }
+
+    .slide-badge {
+      background: var(--color-deep-blue);
+      color: var(--color-white);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .cover-kicker {
+      display: inline-block;
+      background: var(--color-red);
+      color: var(--color-white);
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      width: fit-content;
+    }
+
+    .cover-title {
+      font-size: clamp(2.2rem, 3.6vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.12;
+      margin-bottom: 14px;
+      max-width: 1050px;
+    }
+
+    .cover-script {
+      font-family: 'Kaushan Script', cursive;
+      color: #FFD166;
+      font-size: clamp(1.5rem, 2.3vw, 2.1rem);
+      margin-bottom: 20px;
+    }
+
+    .cover-sub {
+      font-size: 1.12rem;
+      color: #E2E8F0;
+      max-width: 1000px;
+      line-height: 1.5;
+      margin-bottom: 32px;
+    }
+
+    .cover-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 10px;
+    }
+
+    .cover-meta-card {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 14px;
+      padding: 16px 20px;
+    }
+
+    .cover-meta-card small {
+      display: block;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #93C5FD;
+      margin-bottom: 4px;
+      font-weight: 700;
+    }
+
+    .cover-meta-card strong {
+      font-size: 1.05rem;
+      color: #FFFFFF;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      flex: 1;
+      align-content: start;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      flex: 1;
+      align-content: start;
+    }
+
+    .grid-5 {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 13px;
+      flex: 1;
+      align-content: start;
+    }
+
+    .card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-left: 5px solid var(--color-deep-blue);
+      border-radius: 12px;
+      padding: 15px 18px;
+      box-shadow: 0 4px 12px rgba(0, 42, 124, 0.05);
+    }
+
+    .card.red-accent {
+      border-left-color: var(--color-red);
+    }
+
+    .card.navy-accent {
+      border-left-color: var(--color-navy);
+    }
+
+    .card h3 {
+      font-size: 1.02rem;
+      color: var(--color-deep-blue);
+      margin-bottom: 7px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card p, .card li {
+      font-size: 0.9rem;
+      color: var(--color-slate);
+      line-height: 1.4;
+    }
+
+    .card ul {
+      padding-left: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .num-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: var(--color-red);
+      color: var(--color-white);
+      font-size: 0.8rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .formula-box {
+      background: linear-gradient(90deg, var(--color-navy), var(--color-deep-blue));
+      color: var(--color-white);
+      border-radius: 12px;
+      padding: 14px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 12px;
+    }
+
+    .formula-box .eq {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: #FFD166;
+    }
+
+    .steps-row {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .step-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-top: 4px solid var(--color-deep-blue);
+      border-radius: 12px;
+      padding: 13px;
+      position: relative;
+    }
+
+    .step-card.highlight {
+      border-top-color: var(--color-red);
+      background: #FFF1F2;
+    }
+
+    .step-card .step-tag {
+      font-size: 0.74rem;
+      font-weight: 800;
+      color: var(--color-red);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .step-card h4 {
+      font-size: 0.94rem;
+      color: var(--color-navy);
+      margin-bottom: 5px;
+    }
+
+    .step-card p {
+      font-size: 0.84rem;
+      line-height: 1.34;
+      color: var(--color-slate);
+    }
+
+    .styled-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--color-white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      font-size: 0.86rem;
+    }
+
+    .styled-table th {
+      background: var(--color-deep-blue);
+      color: var(--color-white);
+      text-align: left;
+      padding: 9px 13px;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    .styled-table td {
+      padding: 8px 13px;
+      border-bottom: 1px solid #E2E8F0;
+      vertical-align: middle;
+      line-height: 1.34;
+    }
+
+    .styled-table tr:nth-child(even) td {
+      background: #F8FAFC;
+    }
+
+    .slide-footer {
+      border-top: 1px solid #E2E8F0;
+      padding-top: 9px;
+      margin-top: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: var(--color-muted);
+    }
+
+    .controls-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 56px;
+      background: rgba(9, 0, 85, 0.96);
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      color: var(--color-white);
+      z-index: 100;
+    }
+
+    .nav-btns {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-nav {
+      background: var(--color-deep-blue);
+      color: var(--color-white);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 7px 17px;
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: 0.86rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-nav:hover {
+      background: var(--color-red);
+      border-color: var(--color-red);
+    }
+
+    .dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .dot.active {
+      background: var(--color-red);
+      transform: scale(1.25);
+    }
+
+    @media print {
+      body { overflow: visible; height: auto; background: white; }
+      .deck-viewport { display: block; padding: 0; }
+      .slide { display: flex !important; page-break-after: always; max-height: none; height: 100vh; box-shadow: none; margin-bottom: 20px; }
+      .controls-bar { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="deck-viewport">
+
+    <!-- ==================== DIAPOSITIVA 1: PORTADA ==================== -->
+    <section class="slide cover-slide active">
+      <div>
+        <span class="cover-kicker">Propuesta Final · Técnica, Funcional y Comercial</span>
+        <h1 class="cover-title">Nueva Landing Page para Trippin VE</h1>
+        <p class="cover-script">"Más que viajes, ofrecemos experiencias"</p>
+        <p class="cover-sub">
+          Presentación de los <strong>10 Objetivos Principales de Desarrollo</strong> (Buscadores en Vivo KIU GDS y Restel, Cotizador Inteligente, Conciliación Zoho CRM / GoHighLevel, Mapa por Continentes y Panel Autogestionable), <strong>Setup DevOps en AWS desde Cero (TEST y Producción)</strong> y Fases del Proyecto.
+        </p>
+        <div class="cover-meta-grid">
+          <div class="cover-meta-card">
+            <small>Cliente</small>
+            <strong>Trippin VE (Trippin Expeditions C.A.)</strong>
+          </div>
+          <div class="cover-meta-card">
+            <small>Consultor y Desarrollador Senior</small>
+            <strong>Ing. Víctor Rivas</strong>
+          </div>
+          <div class="cover-meta-card">
+            <small>Inversión Total (Setup AWS + Desarrollo)</small>
+            <strong>$3,300 USD ($300 AWS + $3,000 MVP)</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== DIAPOSITIVA 2: VISIÓN GENERAL 10 OBJETIVOS ==================== -->
+    <section class="slide">
+      <div>
+        <div class="slide-header">
+          <div>
+            <span class="kicker">Alcance Funcional del MVP</span>
+            <h2 class="slide-title">Los 10 Objetivos Principales de la Nueva Landing Page</h2>
+          </div>
+          <span class="slide-badge">Diapositiva 2 de 10</span>
+        </div>
+
+        <div class="grid-5">
+          <div class="card red-accent">
+            <h3><span class="num-pill">1</span> Buscadores en Vivo</h3>
+            <p>Barra 5 en 1 conectada en tiempo real a las APIs de <strong>KIU GDS</strong> (boletería aérea) y <strong>Restel</strong> (hoteles mundiales) + carga manual para Venezuela.</p>
+          </div>
+          <div class="card">
+            <h3><span class="num-pill">2</span> Cotización y CRM</h3>
+            <p>Motor <em>"Contexto que Viaja"</em> hacia <strong>WhatsApp</strong>, <strong>GoHighLevel</strong> y <strong>Zoho CRM</strong> con conciliación automática de ventas concretadas.</p>
+          </div>
+          <div class="card">
+            <h3><span class="num-pill">3</span> Mapa por Regiones</h3>
+            <p>Mapa Mundial interactivo dividido por <strong>Continentes y Subcontinentes</strong> con rutas animadas desde Venezuela y despliegue de paquetes.</p>
+          </div>
+          <div class="card">
+            <h3><span class="num-pill">4</span> Paquetes y Promos</h3>
+            <p>Catálogo de Destinos Estrella, carrusel de <strong>Promociones Flash</strong> con descuentos y módulo <strong>"Arma tu Viaje"</strong> a la medida.</p>
+          </div>
+          <div class="card red-accent">
+            <h3><span class="num-pill">5</span> Tarifador Neto + Fee</h3>
+            <p>Suma matemática automática de <strong>Tarifa Neta (API o Proveedor) + Fee de Ganancia de Trippin</strong> sin cálculo manual.</p>
+          </div>
+          <div class="card">
+            <h3><span class="num-pill">6</span> Panel Admin (CMS)</h3>
+            <p>Módulo privado para que su equipo cambie precios, porcentajes de <em>fee</em>, fotos, textos, paquetes y promos sin depender de mí en el día a día.</p>
+          </div>
+          <div class="card">
+            <h3><span class="num-pill">7</span> Idioma ES / EN</h3>
+            <p>Plataforma <strong>100% Bilingüe (Español e Inglés)</strong> en un clic + selector de <strong>Modo Claro y Modo Oscuro</strong> adaptable a móviles.</p>
+          </div>
+          <div class="card">
+            <h3><span class="num-pill">8</span> Posicionamiento SEO</h3>
+            <p>Estructura técnica completa para que Trippin VE aparezca como <strong>primera opción en Google</strong> al buscar viajes, boletos u hoteles.</p>
+          </div>
+          <div class="card red-accent">
+            <h3><span class="num-pill">9</span> Métricas y Heatmaps</h3>
+            <p><strong>Mapas de Calor</strong> (dónde hace clic la gente), Google Analytics 4 y Dashboard gerencial de solicitudes vs. ventas reales.</p>
+          </div>
+          <div class="card">
+            <h3><span class="num-pill">10</span> Secciones Actuales</h3>
+            <p>Renovación de <strong>Redes Sociales</strong> (Feed IG/TikTok), teléfonos <em>Click-to-Call</em>, <strong>Contacto C.C. Los Samanes</strong>, Nosotros, FAQ y Legales.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>Propuesta Final · Nueva Landing Page para Trippin VE</span>
+        <span>Objetivo: Construir una máquina integral de ventas, posicionamiento y autogestión</span>
+      </div>
+    </section>
+
+    <!-- ==================== DIAPOSITIVA 3: BÚSQUEDAS (KIU + RESTEL) Y TARIFAS ==================== -->
+    <section class="slide">
+      <div>
+        <div class="slide-header">
+          <div>
+            <span class="kicker">Objetivos 1 y 5 · Motores de Búsqueda y Rentabilidad</span>
+            <h2 class="slide-title">Sistema de Búsqueda en Vivo (KIU GDS + Restel) y Tarifador</h2>
+          </div>
+          <span class="slide-badge">Diapositiva 3 de 10</span>
+        </div>
+
+        <div class="grid-3">
+          <div class="card red-accent">
+            <h3>✈️ Boletería en Vivo (API KIU GDS)</h3>
+            <ul>
+              <li>Programaré el buscador inteligente de aeropuertos y ciudades por <strong>código IATA</strong> (Ida y vuelta / Solo ida).</li>
+              <li>Clasificación exacta por edades: <strong>Adultos (12+)</strong>, <strong>Niños (2 a 12)</strong> e <strong>Infantes (0 a 2)</strong>.</li>
+              <li>Consulta en tiempo real a <strong>KIU GDS</strong> mostrando vuelos, horarios, aerolíneas y escalas disponibles.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>🏨 Hotelería Mundial (API Restel + VE)</h3>
+            <ul>
+              <li>Conexión directa en vivo con el mayorista <strong>Restel Hotels</strong> para consultar disponibilidad mundial por ciudad o zona.</li>
+              <li>Filtro por fechas de <em>Check-in / Check-out</em>, cantidad de habitaciones y edades de los niños.</li>
+              <li>Coexistencia con <strong>carga manual propia</strong> para hoteles, posadas y paquetes dentro de Venezuela.</li>
+            </ul>
+          </div>
+          <div class="card navy-accent">
+            <h3>🧭 Buscador Multipropósito 5 en 1</h3>
+            <ul>
+              <li>Una sola barra central en la portada para <strong>Boletería, Hospedaje, Paquetes, Seguros y Traslados</strong>.</li>
+              <li>Sin redirigir al usuario a páginas externas ajenas a Trippin VE.</li>
+              <li>Toda búsqueda permite pasar en un clic a cotizar o reservar con todos los datos listos.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="formula-box">
+          <div>
+            <strong style="display:block; font-size:0.95rem; color:#93C5FD;">CÁLCULO COMERCIAL AUTOMÁTICO EN TIEMPO REAL (SIN INTERVENCIÓN MANUAL):</strong>
+            <span style="font-size:0.88rem;">El cliente ve únicamente el Precio Final de Venta; Trippin controla su margen en el Panel y en Zoho CRM.</span>
+          </div>
+          <div class="eq">Tarifa Neta API (KIU / Restel) + Impuestos + Fee Trippin = Precio Final</div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>Propuesta Final · Nueva Landing Page para Trippin VE</span>
+        <span>Automatización de consultas sobre KIU GDS y Restel</span>
+      </div>
+    </section>
+
+    <!-- ==================== DIAPOSITIVA 4: MAPA, PAQUETES, PROMOS FLASH Y ARMA TU VIAJE ==================== -->
+    <section class="slide">
+      <div>
+        <div class="slide-header">
+          <div>
+            <span class="kicker">Objetivos 3 y 4 · Exploración Visual y Catálogo Comercial</span>
+            <h2 class="slide-title">Mapa por Continentes, Paquetes, Promos Flash y "Arma tu Viaje"</h2>
+          </div>
+          <span class="slide-badge">Diapositiva 4 de 10</span>
+        </div>
+
+        <div class="grid-2">
+          <div class="card red-accent">
+            <h3>🌍 1. Mapa Mundial Interactivo por Continentes y Subcontinentes</h3>
+            <ul>
+              <li><strong>Selección cómoda en celular y PC:</strong> Desarrollaré el mapa agrupado por grandes regiones (<em>Sudamérica, Caribe y Centroamérica, Norteamérica, Europa, Medio Oriente, Asia, África y Oceanía</em>).</li>
+              <li><strong>Rutas de vuelo animadas:</strong> Visualización de conexiones saliendo desde Venezuela.</li>
+              <li><strong>Despliegue inmediato:</strong> Al tocar una región, muestra las tarjetas de paquetes disponibles con botón <em>"Ver más detalles"</em>.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>🎒 2. Catálogo de Paquetes de Proveedores ("Destinos Estrella")</h3>
+            <ul>
+              <li>Carrusel interactivo con los paquetes más vendidos de la agencia.</li>
+              <li>Presentación clara bajo el principio <em>"Lo concreto vende"</em>: <strong>Días exactos de duración</strong>, <strong>Precio final "Desde $X USD"</strong>, iconos de <strong>Qué incluye</strong> y fotografías reales optimizadas.</li>
+              <li>Ventana modal con itinerario completo, galería y botón directo de cotización.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>⚡ 3. Carrusel de Promociones Flash en Portada</h3>
+            <ul>
+              <li>Sección destacada en la página principal para ofertas por tiempo limitado o cupos de campaña.</li>
+              <li>Etiquetas llamativas de porcentaje de descuento (ej. <em>-20% OFF</em>) y <strong>precio anterior tachado</strong> para generar urgencia de compra.</li>
+              <li>Activación, edición o pausa en segundos desde el Panel Administrativo.</li>
+            </ul>
+          </div>
+
+          <div class="card navy-accent">
+            <h3>✨ 4. Creador de Paquetes Personalizados ("Arma tu Viaje")</h3>
+            <ul>
+              <li>Diseñado para el viajero que desea armar una solicitud a su medida fuera del catálogo fijo.</li>
+              <li>Permite elegir destino abierto, combinar servicios (<strong>Vuelo + Hotel + Seguro + Traslados + Actividades</strong>), fechas tentativas, cantidad de pasajeros y <strong>método de pago preferido</strong>.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>Propuesta Final · Nueva Landing Page para Trippin VE</span>
+        <span>Experiencia de exploración diseñada para convertir visitantes en clientes</span>
+      </div>
+    </section>
+
+    <!-- ==================== DIAPOSITIVA 5: COTIZACIÓN, GHL Y CONCILIACIÓN ZOHO CRM ==================== -->
+    <section class="slide">
+      <div>
+        <div class="slide-header">
+          <div>
+            <span class="kicker">Objetivos 2 y 9 · El Corazón Comercial y Trazabilidad</span>
+            <h2 class="slide-title">¿Cómo Viaja la Cotización y se Concilia con Zoho CRM y GHL?</h2>
+          </div>
+          <span class="slide-badge">Diapositiva 5 de 10</span>
+        </div>
+
+        <div class="steps-row">
+          <div class="step-card">
+            <span class="step-tag">Paso 1 · En la Web</span>
+            <h4>Empaquetado "Contexto que Viaja"</h4>
+            <p>Capturo contacto, vuelo KIU / hotel Restel / paquete, fechas, adultos, niños, método de pago, <em>Neto + Fee</em> y campaña UTM.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-tag">Paso 2 · Seguridad</span>
+            <h4>Respaldo Local en AWS</h4>
+            <p>Se guarda primero en la Base de Datos propia en AWS con estado <code>NUEVA SOLICITUD</code>. <strong>Cero pérdida de clientes</strong>.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-tag">Paso 3 · Atención</span>
+            <h4>GoHighLevel + WhatsApp</h4>
+            <p>Envío Webhook a <strong>GHL</strong> (crea oportunidad) y abro <strong>WhatsApp</strong> con todo el resumen del viaje ya escrito sin repetir datos.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-tag">Paso 4 · Gestión</span>
+            <h4>Creación de "SOLICITUD" en Zoho CRM</h4>
+            <p>Registro formalmente la solicitud en <strong>Zoho CRM</strong> con todos los campos técnicos y financieros asignados al vendedor.</p>
+          </div>
+          <div class="step-card highlight">
+            <span class="step-tag">Paso 5 · Retorno</span>
+            <h4>Conciliación de Ventas y Reserva Online</h4>
+            <p>Conexión bidireccional: cuando pasa a <strong>"CONCRETADA"</strong> en Zoho CRM, el panel web contabiliza la venta real y habilita pago/reserva.</p>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>🔥 Mapas de Calor (Heatmaps) con Microsoft Clarity</h3>
+            <p>Integraré mapas de calor para visualizar dónde hacen clic los visitantes y grabaciones de navegación para saber si entran más por las <strong>Promos Flash</strong>, por el <strong>Buscador KIU/Restel</strong> o por el <strong>Mapa Interactivo</strong>.</p>
+          </div>
+          <div class="card red-accent">
+            <h3>📊 Dashboard Gerencial Conciliado + Google Analytics 4</h3>
+            <p>Panel de reportes con cantidad de solicitudes generadas vs. <strong>ventas "CONCRETADAS" en Zoho CRM</strong>, destinos más buscados, métodos de pago solicitados y monto real en dólares.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>Propuesta Final · Nueva Landing Page para Trippin VE</span>
+        <span>Integración bidireccional completa entre la Web, WhatsApp, GoHighLevel y Zoho CRM</span>
+      </div>
+    </section>
+
+    <!-- ==================== DIAPOSITIVA 6: PANEL ADMIN, IDIOMA, SEO Y SECCIONES MEJORADAS ==================== -->
+    <section class="slide">
+      <div>
+        <div class="slide-header">
+          <div>
+            <span class="kicker">Objetivos 6, 7, 8 y 10 · Autonomía, Alcance Internacional y Confianza</span>
+            <h2 class="slide-title">Panel Administrativo (CMS), Idioma ES/EN, SEO y Secciones Actuales</h2>
+          </div>
+          <span class="slide-badge">Diapositiva 6 de 10</span>
+        </div>
+
+        <div class="grid-2">
+          <div class="card red-accent">
+            <h3>⚙️ Objetivo 6: Panel Administrativo Autogestionable (CMS)</h3>
+            <ul>
+              <li>Control total para el equipo de Trippin <strong>sin depender de mí en el día a día</strong>.</li>
+              <li>Permite ajustar las <strong>reglas de Fee de KIU y Restel</strong>, crear/editar paquetes, activar Promos Flash, cambiar precios, subir fotos y editar todos los textos y FAQs con roles de usuario.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>🌐 Objetivo 7 y 8: Bilingüe (ES/EN) + Posicionamiento SEO en Google</h3>
+            <ul>
+              <li><strong>Español e Inglés en 1 clic:</strong> Traducción del 100% de la interfaz, buscadores y paquetes + <strong>Modo Claro / Oscuro</strong>.</li>
+              <li><strong>SEO para ser 1ra opción en Google:</strong> Etiquetas dinámicas, fichas oficiales <code>Schema.org (TravelAgency)</code>, Sitemap automático y alta velocidad en celulares.</li>
+            </ul>
+          </div>
+
+          <div class="card" style="grid-column: span 2;">
+            <h3>🏢 Objetivo 10: Conservación y Mejora de las Secciones Actuales de <code>trippinve.com</code></h3>
+            <div class="grid-3" style="margin-top:8px;">
+              <div>
+                <strong style="color:var(--color-deep-blue);">📱 Redes Sociales y Teléfonos:</strong>
+                <p>Botones a Facebook, LinkedIn, TikTok e Instagram (<code>@trippin_ve</code>) + <strong>Muro Social Visual</strong> en vivo y líneas corporativas <em>Click-to-Call / WhatsApp</em> editables.</p>
+              </div>
+              <div>
+                <strong style="color:var(--color-deep-blue);">📍 Contacto y Sede Los Samanes:</strong>
+                <p>Ficha interactiva de la sede en <strong>C.C. Los Samanes (Piso 2, Ofic. 201)</strong> con Google Maps, horario (L-V 8:30 a 5:30) y formulario conectado a GHL y Zoho CRM.</p>
+              </div>
+              <div>
+                <strong style="color:var(--color-deep-blue);">🏅 Nosotros, FAQ y Legales:</strong>
+                <p>Sección <em>"Vive tu propia experiencia"</em> con marcos en arco, cifras de respaldo, Testimonios reales, acordeón de <strong>Preguntas Frecuentes</strong> y Términos Legales sin cortes.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>Propuesta Final · Nueva Landing Page para Trippin VE</span>
+        <span>Autogestión total de contenidos y fortalecimiento de marca</span>
+      </div>
+    </section>
+
+    <!-- ==================== DIAPOSITIVA 7: SETUP AWS DESDE CERO + RECURSOS NECESITADOS ==================== -->
+    <section class="slide">
+      <div>
+        <div class="slide-header">
+          <div>
+            <span class="kicker">Infraestructura DevOps y Requisitos de Arranque</span>
+            <h2 class="slide-title">Configuración AWS (TEST y Producción) y Recursos que Necesito</h2>
+          </div>
+          <span class="slide-badge">Diapositiva 7 de 10</span>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>☁️ Mi Plan DevOps Senior para su Cuenta AWS (Desde Cero)</h3>
+            <p style="margin-bottom:8px;">Como su cuenta de AWS está desde cero, configuraré dos ambientes aislados: <strong>Ambiente TEST</strong> (para pruebas) y <strong>Ambiente PRODUCCIÓN</strong> (producto final):</p>
+            <ul>
+              <li><strong>Servidor Web y Servidor de Base de Datos (MySQL):</strong> Instancias separadas para <code>TEST</code> y <code>PRODUCCIÓN</code> con copias de seguridad automáticas.</li>
+              <li><strong>DNS y Balanceador de Cargas (Load Balancer):</strong> Certificados SSL renovables gratuitos, alta disponibilidad y configuración de dominios.</li>
+              <li><strong>GitHub + Trello Enlazados + CI/CD:</strong> Repositorio en GitHub conectado con Trello y tubería de <strong>Integración y Despliegue Continuo (CI/CD)</strong> hacia <code>TEST</code> y <code>PRODUCCIÓN</code>.</li>
+              <li><strong>Transparencia Total desde el Día 1:</strong> Tendrán acceso a todo el código de GitHub, Bases de Datos, ambientes, servidores y Trello desde el primer día.</li>
+            </ul>
+          </div>
+
+          <div class="card red-accent">
+            <h3>🔑 Los 5 Recursos que Necesito de Parte de Trippin VE</h3>
+            <p style="margin-bottom:8px;">Para arrancar la Fase Inicial y el Levantamiento sin demoras, necesitaré:</p>
+            <ul>
+              <li><strong>1. Wireframes que ya tienen en sus manos:</strong> Para tomarlos como base directa en la fase de Diseño (Mockups).</li>
+              <li><strong>2. Acceso a su cuenta de AWS:</strong> Para realizar el análisis y la configuración de los ambientes <code>TEST</code> y <code>PRODUCCIÓN</code>.</li>
+              <li><strong>3. Acceso de Ambiente TEST para Zoho CRM y GoHighLevel:</strong> Para probar todo el flujo de cotizaciones sin afectar su operación real.</li>
+              <li><strong>4. Accesos API para Zoho CRM y GoHighLevel:</strong> Llaves y credenciales para conectar las solicitudes y la conciliación de ventas.</li>
+              <li><strong>5. Accesos API para las Integraciones del Buscador:</strong> Credenciales de prueba (Sandbox) y documentación de <strong>KIU GDS</strong> y <strong>Restel</strong>.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>Propuesta Final · Nueva Landing Page para Trippin VE</span>
+        <span>Transparencia 100%: Verán avances en reuniones, Trello, commits en GitHub y despliegues en TEST</span>
+      </div>
+    </section>
+
+    <!-- ==================== DIAPOSITIVA 8: LAS 6 FASES DEL PROYECTO ==================== -->
+    <section class="slide">
+      <div>
+        <div class="slide-header">
+          <div>
+            <span class="kicker">Metodología Ordenada con Holgura y 30% de Riesgo</span>
+            <h2 class="slide-title">Las 6 Fases del Proyecto: De AWS y Diseño hasta Producción</h2>
+          </div>
+          <span class="slide-badge">Diapositiva 8 de 10</span>
+        </div>
+
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th style="width:22%;">Fase del Proyecto</th>
+              <th style="width:53%;">Qué Ejecutaré en esta Fase</th>
+              <th style="width:12%;">Riesgo (~30%)</th>
+              <th style="width:13%;">Total Estimado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong style="color:var(--color-red);">FASE 0: Setup AWS (TEST y Prod) y CI/CD</strong></td>
+              <td>Configuración desde cero en AWS: Servidor Web, Servidor BD, DNS, Balanceador de Cargas, cuenta GitHub, cuenta Trello, enlace Trello-GitHub y CI/CD.</td>
+              <td>Incluido (7.5 h)</td>
+              <td><strong>30.0 Horas</strong></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--color-deep-blue);">FASE 1: Levantamiento de Información</strong></td>
+              <td>Revisión de sus <em>Wireframes</em>, definición de reglas de tarifas (<em>Neto + Fee</em>), diccionario de datos para Zoho CRM / GHL y validación técnica de APIs KIU y Restel.</td>
+              <td>Incluido (6.5 h)</td>
+              <td><strong>26.0 Horas</strong></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--color-deep-blue);">FASE 2: Diseño (Mockups)</strong></td>
+              <td>Elaboración de los <strong>Mockups (maquetas visuales)</strong> de toda la Landing Page y el Panel Admin en Español/Inglés y Claro/Oscuro para su aprobación antes de programar.</td>
+              <td>Incluido (9.0 h)</td>
+              <td><strong>36.0 Horas</strong></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--color-red);">FASE 3: Desarrollo e Integraciones API (Parte I y II)</strong></td>
+              <td>• <strong>Desarrollo Web y CMS:</strong> Landing Bilingüe (ES/EN), Buscador, Mapa por Continentes, Paquetes, Promos Flash, "Arma tu Viaje", Secciones, SEO y Panel Admin.<br>• <strong>Integración API Parte I:</strong> Conexión en vivo con el buscador API de <strong>KIU GDS</strong> (boletos) e inicio de <strong>Restel</strong> sumando <em>Tarifa Neta + Fee</em>.<br>• <strong>Integración API Parte II y CRM:</strong> Cierre del buscador <strong>Restel</strong> (hoteles), motor <em>"Contexto que Viaja"</em> a WhatsApp, <strong>conciliación bidireccional con Zoho CRM / GHL</strong>, Mapas de Calor y Dashboard.</td>
+              <td>Incluido (40.5 h)</td>
+              <td><strong>170.0 Horas</strong></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--color-deep-blue);">FASE 4: Pruebas (QA) en Ambiente TEST</strong></td>
+              <td>Pruebas integrales en el ambiente <strong>AWS TEST</strong>: validación de vuelos KIU, hoteles Restel, cotizaciones y conciliación con el ambiente TEST de Zoho CRM y HighLevel en móviles y PC.</td>
+              <td>Incluido (8.5 h)</td>
+              <td><strong>35.0 Horas</strong></td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--color-red);">FASE 5: Implementación (Ambiente Producción)</strong></td>
+              <td>Una vez que el ambiente <code>TEST</code> esté estable y haya pasado todas las pruebas: despliegue y pruebas finales en el ambiente de <strong>PRODUCCIÓN</strong> y entrega al equipo.</td>
+              <td>Incluido (3.5 h)</td>
+              <td><strong>21.0 Horas</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="slide-footer">
+        <span>Propuesta Final · Nueva Landing Page para Trippin VE</span>
+        <span>Total estimado con holgura QA y 30% de margen de riesgo: 318.0 Horas Hombre</span>
+      </div>
+    </section>
+
+    <!-- ==================== DIAPOSITIVA 9: PROPUESTA ECONÓMICA Y PLANES DE PAGO ==================== -->
+    <section class="slide">
+      <div>
+        <div class="slide-header">
+          <div>
+            <span class="kicker">Propuesta Económica · Setup AWS ($300) + Desarrollo MVP ($3,000)</span>
+            <h2 class="slide-title">Dos Alternativas de Plan de Trabajo (Total: $3,300 USD)</h2>
+          </div>
+          <span class="slide-badge">Diapositiva 9 de 10</span>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3 style="font-size:1.12rem; color:var(--color-deep-blue);">🗓️ PLAN 1 (5 Meses): Setup AWS ($300) + 5 Fases de $600 USD</h3>
+            <p style="margin-bottom:8px; color:var(--color-muted);"><em>Inversión Total: <strong>$3,300 USD</strong> ($300 Setup AWS + $3,000 Desarrollo).</em></p>
+            <ul>
+              <li><strong>Setup Inicial AWS ($300 USD):</strong> Configuración desde cero en AWS de los ambientes <code>TEST</code> y <code>PRODUCCIÓN</code>, Servidor Web, BD, DNS, Balanceador, GitHub, Trello y CI/CD.</li>
+              <li><strong>Fase 1 (Mes 1 — $600 USD):</strong> <em>Levantamiento + Diseño (Mockups)</em> + Desarrollo base bilingüe (ES/EN), Modo Oscuro y Portada Hero con Buscador en <code>TEST</code>.</li>
+              <li><strong>Fase 2 (Mes 2 — $600 USD):</strong> <em>Desarrollo Web:</em> Mapa por Continentes, Destinos Estrella, Promos Flash, "Arma tu Viaje" y Secciones (Redes, Contacto, Nosotros, FAQ).</li>
+              <li><strong>Fase 3 (Mes 3 — $600 USD):</strong> <em>Desarrollo e Integración API (Parte I):</em> Conexión en vivo con <strong>KIU GDS</strong> (boletos) e inicio de <strong>Restel</strong> sumando <em>Tarifa Neta + Fee</em>.</li>
+              <li><strong>Fase 4 (Mes 4 — $600 USD):</strong> <em>Integración API (Parte II) y CRM:</em> Buscador en vivo <strong>Restel</strong> (hoteles), Cotizador a WhatsApp, <strong>Conciliación Bidireccional Zoho CRM / GHL</strong>, Panel Admin CMS y SEO.</li>
+              <li><strong>Fase 5 (Mes 5 — $600 USD):</strong> <em>Pruebas QA en Ambiente TEST e Implementación en Producción:</em> Certificación en <code>TEST</code>, Mapas de Calor, Dashboard y despliegue en <strong>PRODUCCIÓN</strong>.</li>
+            </ul>
+          </div>
+
+          <div class="card red-accent">
+            <h3 style="font-size:1.12rem; color:var(--color-red);">🚀 PLAN 2 (4 Meses): Setup AWS ($300) + 4 Fases de $750 USD</h3>
+            <p style="margin-bottom:8px; color:var(--color-muted);"><em>Inversión Total: <strong>$3,300 USD</strong> ($300 Setup AWS + $3,000 Desarrollo).</em></p>
+            <ul>
+              <li><strong>Setup Inicial AWS ($300 USD):</strong> Configuración desde cero en AWS de los ambientes <code>TEST</code> y <code>PRODUCCIÓN</code>, Servidor Web, BD, DNS, Balanceador, GitHub, Trello y CI/CD.</li>
+              <li><strong>Fase 1 (Mes 1 — $750 USD):</strong> <em>Levantamiento + Diseño (Mockups)</em> + Desarrollo de Portada Hero, Buscador IATA/Edades, Idioma ES/EN, Destinos Estrella y Promos Flash en <code>TEST</code>.</li>
+              <li><strong>Fase 2 (Mes 2 — $750 USD):</strong> <em>Desarrollo Web + Integración API (Parte I):</em> Mapa por Continentes, "Arma tu Viaje", Secciones + Conexión en vivo con <strong>KIU GDS (Boletos + Fee)</strong>.</li>
+              <li><strong>Fase 3 (Mes 3 — $750 USD):</strong> <em>Integración API (Parte II) y CRM:</em> Conexión en vivo con <strong>Restel (Hoteles + Fee)</strong>, Cotizador a WhatsApp, <strong>Conciliación Bidireccional Zoho CRM / GHL</strong>, Panel CMS y SEO.</li>
+              <li><strong>Fase 4 (Mes 4 — $750 USD):</strong> <em>Pruebas QA en Ambiente TEST e Implementación en Producción:</em> Mapas de Calor, Dashboard, certificación en <code>TEST</code> y despliegue en <strong>PRODUCCIÓN</strong>.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>Propuesta Final · Nueva Landing Page para Trippin VE</span>
+        <span>Requerimientos adicionales fuera del alcance inicial del MVP: $10.00 USD / hora</span>
+      </div>
+    </section>
+
+    <!-- ==================== DIAPOSITIVA 10: 30 DÍAS POST-LANZAMIENTO, MANTENIMIENTO Y CIERRE ==================== -->
+    <section class="slide">
+      <div>
+        <div class="slide-header">
+          <div>
+            <span class="kicker">Post-Lanzamiento, Evolución y Acuerdo de Inicio</span>
+            <h2 class="slide-title">Plan Post-Lanzamiento ($600/mes), Horas Extras y Próximos Pasos</h2>
+          </div>
+          <span class="slide-badge">Diapositiva 10 de 10</span>
+        </div>
+
+        <div class="grid-2">
+          <div class="card red-accent">
+            <h3>🛡️ Plan de 30 Días Post-Lanzamiento y Mantenimiento ($600 USD / mes)</h3>
+            <ul>
+              <li><strong>Fuera de los 4-5 meses de desarrollo:</strong> Una vez lanzado el MVP en Producción, iniciamos los primeros 30 días de estabilización y el mantenimiento mensual continuo.</li>
+              <li><strong>Dedicación de 18 a 20 horas semanales (~72 a 80 horas al mes):</strong> Monitoreo activo de las APIs en vivo (KIU GDS, Restel, Zoho CRM y GHL), soporte técnico directo, optimización SEO y mejoras continuas del sitio web.</li>
+              <li><strong>Costo Mensual:</strong> <strong>$600 USD por mes</strong> (para los 30 días post-lanzamiento y meses siguientes de mantenimiento).</li>
+              <li><strong>Orden de Evolución Post-MVP:</strong> 1º Mantenimiento y mejoras mensuales ($600/mes) ➔ 2º Futuras integraciones con otros proveedores (Sabre, Amadeus, Mega Travel, Protege Tu Viaje).</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>🤝 Transparencia, Horas Extras y Arranque</h3>
+            <ul>
+              <li><strong>Tarifa Preferencial para Requisitos Fuera del Alcance:</strong> Cualquier requerimiento adicional fuera del alcance inicial del MVP se estimará previamente a <strong>$10.00 USD por hora</strong>.</li>
+              <li><strong>Transparencia 100% desde el Día 1:</strong> Acceso total a GitHub, Bases de Datos, ambientes TEST/Producción en AWS y Trello + reuniones semanales de 30 minutos.</li>
+              <li><strong>3 Pasos para Arrancar Hoy:</strong>
+                <br>1. Elegir el Plan de Trabajo (<strong>Plan 1 a 5 meses</strong> o <strong>Plan 2 a 4 meses</strong>).
+                <br>2. Entregar acceso a AWS y los <em>Wireframes</em> para iniciar el Setup AWS ($300 USD) y Levantamiento.
+                <br>3. Suministrar los accesos TEST/API de Zoho CRM, GoHighLevel, KIU GDS y Restel.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>Ing. Víctor Rivas · Consultor y Desarrollador de Software Senior · https://www.linkedin.com/in/rivas-dev/</span>
+        <span>Caracas, Venezuela · Trippin Expeditions C.A.</span>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Barra de Controles de Presentación -->
+  <div class="controls-bar">
+    <div style="font-size:0.88rem; font-weight:600;">
+      Nueva Landing Page para Trippin VE · Presentación Ejecutiva (Usa las flechas ⬅️ ➡️ del teclado)
+    </div>
+    <div class="dots" id="dotsContainer"></div>
+    <div class="nav-btns">
+      <button class="btn-nav" onclick="prevSlide()">◀ Anterior</button>
+      <span id="slideCounter" style="font-size:0.9rem; min-width:55px; text-align:center;">1 / 10</span>
+      <button class="btn-nav" onclick="nextSlide()">Siguiente ▶</button>
+    </div>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const dotsContainer = document.getElementById('dotsContainer');
+    const counter = document.getElementById('slideCounter');
+    let current = 0;
+
+    slides.forEach((_, idx) => {
+      const d = document.createElement('div');
+      d.className = 'dot' + (idx === 0 ? ' active' : '');
+      d.onclick = () => goToSlide(idx);
+      dotsContainer.appendChild(d);
+    });
+
+    function updateDeck() {
+      slides.forEach((s, i) => s.classList.toggle('active', i === current));
+      document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
+      counter.textContent = (current + 1) + ' / ' + slides.length;
+    }
+
+    function nextSlide() {
+      if (current < slides.length - 1) { current++; updateDeck(); }
+    }
+
+    function prevSlide() {
+      if (current > 0) { current--; updateDeck(); }
+    }
+
+    function goToSlide(idx) {
+      current = idx;
+      updateDeck();
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+        e.preventDefault();
+        nextSlide();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        prevSlide();
+      }
+    });
+  </script>
+</body>
+</html>
